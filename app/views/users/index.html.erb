@@ -1,0 +1,25 @@
+<header>
+
+<div class="center">
+  <h1>Welcome to MyPocket</h1>
+  <h3>- an app that can help you achieve financial success! </h3>
+</div>
+
+</header>
+
+
+<div class="center">
+  <%= image_tag("pigcalculator.jpg") %>
+  <h4>MyPocket is the easiest and most user friendly Personal Finance App in the store.</h4>
+  <h4>And best of all, it's free! The simple fact is, by tracking your spending you will be able to stick to a budget and therefore SAVE MONEY.</h4>
+  <h4>So give it a try and have instant control over your spending!</h4>
+</div>
+
+<br>
+<div class="center">
+    <%= link_to "Log In", signin_path, class: "btn btn-primary" %><br>
+    <br>
+    <%= link_to "Sign Up", new_user_path, class: "btn btn-primary" %><br>
+    <br>
+    <%= link_to "Log in with Facebook", '/auth/facebook', class: "btn btn-primary" %>
+</div>
