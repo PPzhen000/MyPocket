@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :uid
       t.string :email
       t.string :image
-      t.integer :dci_number
     end
   end
 end

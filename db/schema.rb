@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2018_10_13_235650) do
     t.string "uid"
     t.string "email"
     t.string "image"
-    t.integer "dci_number"
   end
 
 end
