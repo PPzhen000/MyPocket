@@ -1,0 +1,21 @@
+<div class="center">
+  <fieldset>
+    <legend><h1>Log In:</h1></legend>
+    <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
+
+        <%= f.label :id, "Your Name:" %></br>
+        <%= f.text_field :name %> </br>
+
+        <%= f.label :password %></br>
+        <%= f.password_field :password, id: "password" %></br>
+
+        <%= f.label 'Comfirm Password' %></br>
+        <%= f.password_field :password_confirmation %>
+
+        </br>
+
+        <%= f.submit "Sign In", class: "btn btn-primary"%>
+
+      <% end %>
+  </fieldset>
+</div>
