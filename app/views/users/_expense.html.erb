@@ -1,0 +1,23 @@
+<h2>Let's look at your expenses: </h2>
+  <%total_spent = 0 %>
+  <% current_user.categories.uniq.each do |category| %>
+
+      <h3><%= category.name %></h3>
+
+    <ol>
+      <%category_total = 0 %>
+    <% category.transactions.uniq.each do |ts| %>
+      <li><%= link_to ts.description, edit_user_transaction_path(current_user, ts) %> - $ <%= ts.amount %></li>
+      <%category_total += ts.amount%>
+    <% end %>
+    <br>
+    <h4>Total: $ <%=category_total%></h4>
+    <br>
+    <%total_spent += category_total %>
+    </ol>
+  <% end %>
+  <br>
+  <h3>You have spent $ <%=total_spent %> so far!</h3>
+  <br>
+  <%= render 'transactions/form' %>
+  <br>
