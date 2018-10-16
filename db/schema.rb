@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_051605) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "monthly_budget"
+    t.integer "monthly_budget", default: 0
   end
 
   create_table "incomes", force: :cascade do |t|
