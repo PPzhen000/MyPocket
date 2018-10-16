@@ -7,7 +7,6 @@ class IncomesController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @income = current_user.incomes.create(income_params)
     if @income.save
       flash[:success] = "Income was created"
