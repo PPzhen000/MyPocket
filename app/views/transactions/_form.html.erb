@@ -1,4 +1,4 @@
-<%= form_for ([current_user, current_user.transactions.build]) do |f| %>
+<%= form_for ([@user, @user.transactions.build]) do |f| %>
 
   <%= f.collection_select :category_id, Category.all, :id, :name %>
   <%= f.label :description %>
