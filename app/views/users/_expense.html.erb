@@ -1,24 +1,33 @@
-<h2>Let's look at your expenses: </h2>
-  <%total_spent = 0 %>
-  <% current_user.categories.uniq.each do |category| %>
+<div class="container">
+  <h2>Let's look at your expenses: </h2>
+    <%total_spent = 0 %>
+    <% current_user.categories.uniq.each do |category| %>
 
-      <h3><%= link_to category.name, edit_category_path(category) %></h3>
+        <h3><%= link_to category.name, edit_category_path(category) %></h3>
 
-    <ol>
-    <% category.transactions.uniq.each do |ts| %>
-      <li><%= link_to ts.description, edit_user_transaction_path(current_user, ts) %> - $ <%= ts.amount %></li>
+      <ol>
+      <% category.transactions.uniq.each do |ts| %>
+        <li><%= link_to ts.description, edit_user_transaction_path(current_user, ts) %> - $ <%= ts.amount %></li>
 
+      <% end %>
+      <br>
+      <h4>Category Total: $ <%= category.category_total%></h4>
+      <h4>Your monthly budget for <%= category.name %> is $ <%=category.monthly_budget%></h4>
+      <% if category.status == "good" %>
+         <span class="emoji">😃</span>
+      <% elsif category.status == "not good" %>
+        <span class="emoji">☹️</span>
+      <% end %>
+      <%=category.status%>
+      <br>
+      </ol>
+      <%total_spent += category.category_total %>
     <% end %>
     <br>
-    <h4>Category Total: $ <%category.category_total%></h4>
-    <h4>Your monthly budget for <%= category.name %> is $ <%=category.monthly_budget%></h4>
-    <%=category.status%>
+    <h3>You have spent $ <%=total_spent %> so far!</h3>
     <br>
-    </ol>
-    <%total_spent += category.category_total %>
-  <% end %>
-  <br>
-  <h3>You have spent $ <%=total_spent %> so far!</h3>
-  <br>
-  <%= render 'transactions/form' %>
-  <br>
+    <div id="form">
+      <%= render 'transactions/form' %>
+    </div>
+    <br>
+</div>

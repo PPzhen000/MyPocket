@@ -8,15 +8,8 @@ class Category < ApplicationRecord
 
   def status
     if self.monthly_budget && self.category_total
-      self.monthly_budget >= self.category_total ? "doing good" : "not so great"
+      self.monthly_budget >= self.category_total ? "good" : "not good"
     end
   end
 
-  def total_spent
-    total = 0
-    self.each do |ca|
-      total += ca.category_total
-    end
-    total
-  end
 end

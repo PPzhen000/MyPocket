@@ -1,12 +1,16 @@
-<h2>Income: </h2>
-<ul>
+<div class="container">
+  <h2>Income: </h2>
+  <ul>
 
-  <% current_user.incomes.uniq.each do |ic| %>
-    <li><%= ic.description %> - $ <%= ic.amount %><br></li>
-    <%= link_to "delete", user_income_path(current_user, ic), method: :delete, data: { confirm: "Are you sure?" }%>
+    <% current_user.incomes.uniq.each do |ic| %>
+      <li><h3><%= ic.description %> - $ <%= ic.amount %><br></h3>
+        <div class="trash">
+          <%= button_to "Delete", user_income_path(current_user, ic), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+       </li>
+    <% end %>
+    <br>
 
-  <% end %>
-  <br>
-
-</ul>
-  <%= render 'incomes/form' %>
+  </ul>
+    <%= render 'incomes/form' %>
+</div>

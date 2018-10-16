@@ -8,7 +8,8 @@
     </div>
 <% end %>
 
-<h1>Welcome! <%= current_user.name%></h1>
+<h1>Welcome! <%= current_user.name%><span class="emoji">😃</span></h1>
+
 <br>
 <%= render 'income' %>
 <br>
@@ -16,4 +17,6 @@
 <br>
 <%= render 'saving_goal' %>
 <br>
-<%= link_to "Log Out", signout_path, method: :delete %>
+<div class="center">
+  <%= button_to "Log Out", signout_path, method: :delete %>
+</div>

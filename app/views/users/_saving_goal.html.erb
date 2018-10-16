@@ -1,12 +1,14 @@
-<h2>Your Financial Goals: </h2>
-<ul>
+<div class="container">
+  <h2>Your Financial Goals: </h2>
+  <ul>
 
-  <% current_user.saving_goals.uniq.each do |sg| %>
-    <li><%= sg.description %> - $ <%= sg.amount %><br></li>
-    <%= link_to "delete", user_saving_goal_path(current_user, sg), method: :delete, data: { confirm: "Are you sure?" }%>
+    <% current_user.saving_goals.uniq.each do |sg| %>
+      <li><%= sg.description %> - $ <%= sg.amount %><br></li>
+      <%= link_to "delete", user_saving_goal_path(current_user, sg), method: :delete, data: { confirm: "Are you sure?" }%>
 
-  <% end %>
-  <br>
+    <% end %>
+    <br>
 
-</ul>
-  <%= render 'saving_goals/form' %>
+  </ul>
+    <%= render 'saving_goals/form' %>
+</div>
