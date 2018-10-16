@@ -1,0 +1,9 @@
+<%= form_for @category do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+  <br>
+  <%= f.label :monthly_budget %>
+  <%= f.text_field :monthly_budget%>
+  <%= f.submit %>
+<% end %>
