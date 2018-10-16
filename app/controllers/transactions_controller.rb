@@ -3,8 +3,8 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, except: [:create]
 
   def new
-    @user = current_user
-    @transaction = @user.transactions.build
+    # @user = current_user
+    # @transaction = @user.transactions.build
   end
 
   def create
