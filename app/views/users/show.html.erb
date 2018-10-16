@@ -1,3 +1,17 @@
-<h1>Welcome! <%= current_user.name%></h1>
+<% if !flash.empty? %>
+    <div id="flash">
+        <% flash.keys.each do |k| %>
+            <div class="<%= k %>">
+                <%= flash[k] %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
 
+<h1>Welcome! <%= current_user.name%></h1>
+<br>
 <%= render 'expense' %>
+<br>
+<%= render 'saving_goal' %>
+<br>
+<%= link_to "Log Out", signout_path, method: :delete %>
