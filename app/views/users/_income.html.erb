@@ -1,0 +1,12 @@
+<h2>Income: </h2>
+<ul>
+
+  <% current_user.incomes.uniq.each do |ic| %>
+    <li><%= ic.description %> - $ <%= ic.amount %><br></li>
+    <%= link_to "delete", user_income_path(current_user, ic), method: :delete, data: { confirm: "Are you sure?" }%>
+
+  <% end %>
+  <br>
+
+</ul>
+  <%= render 'incomes/form' %>

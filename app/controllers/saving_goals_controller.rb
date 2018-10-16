@@ -18,7 +18,6 @@ class SavingGoalsController < ApplicationController
   end
 
   def edit
-    @saving_goal = SavingGoal.find(params[:id])
   end
 
   def destroy
