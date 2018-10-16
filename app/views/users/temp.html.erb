@@ -5,17 +5,17 @@
       <h3><%= link_to category.name, edit_category_path(category) %></h3>
 
     <ol>
+      <%category_total = 0 %>
     <% category.transactions.uniq.each do |ts| %>
       <li><%= link_to ts.description, edit_user_transaction_path(current_user, ts) %> - $ <%= ts.amount %></li>
-
+      <%category_total += ts.amount%>
     <% end %>
     <br>
-    <h4>Category Total: $ <%category.category_total%></h4>
+    <h4>Category Total: $ <%=category_total%></h4>
     <h4>Your monthly budget for <%= category.name %> is $ <%=category.monthly_budget%></h4>
-    <%=category.status%>
     <br>
+    <%total_spent += category_total %>
     </ol>
-    <%total_spent += category.category_total %>
   <% end %>
   <br>
   <h3>You have spent $ <%=total_spent %> so far!</h3>
