@@ -1,4 +1,19 @@
 <%= form_for ([@user, @user.incomes.build]) do |f| %>
+  <% @income = @user.incomes.build%>
+  <% if @income.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@income.errors.count, "error") %> prohibited this activity from being saved:
+      </h2>
+
+      <ul>
+      <% @income.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.label :amount %>
