@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :saving_goals
   end
 
+  resources :users do
+    resources :incomes
+  end
+
   get "/signin", to: "sessions#new"
   post "/sessions/create", to: "sessions#create"
   get "/auth/facebook/callback", to: "sessions#create"
