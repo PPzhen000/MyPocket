@@ -8,7 +8,7 @@ class IncomesController < ApplicationController
 
   def create
     # raise params.inspect
-    @income = current_user.income.create(income_params)
+    @income = current_user.incomes.create(income_params)
     if @income.save
       flash[:success] = "Income was created"
     else
@@ -31,11 +31,11 @@ class IncomesController < ApplicationController
 
   private
   def set_income
-    @income = current_user.income.find(params[:id])
+    @income = current_user.incomes.find(params[:id])
   end
 
   def income_params
-    params[:saving_goal].permit(:description, :amount)
+    params[:income].permit(:description, :amount)
   end
 
 
