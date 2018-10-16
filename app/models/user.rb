@@ -6,7 +6,9 @@ class User < ApplicationRecord
   has_many :incomes, :dependent => :destroy
   has_many :categories, through: :transactions
 
-  validates :name, presence: true, uniqueness: true
+  validates_presence_of   :name, :message => "Please Enter User's  Name."
+  validates_presence_of   :password, :message => 'Please Enter Your Password.'
+  validates :name, uniqueness: true
   validates :name, format: { without: /[0-9]/, message: "does not allow numbers" }
 
 end
