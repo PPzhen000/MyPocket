@@ -13,10 +13,39 @@
  *= require_tree .
  *= require_self
  */
-
+$white_opaque: rgba(250, 250, 200, .5);
 
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
+}
+
+.container {
+	width: 50%;
+	max-width: 750px;
+	background: $white_opaque;
+	margin: 3em auto 0 auto;
+	border-radius: 7px;
+	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+	padding: 1em 0;
+}
+
+.center {
+  text-align: center;
+}
+
+body {
+ 	height: 100%;
+  background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  font-family: 'Lato', sans-serif;
+}
+
+.forms {
+	padding: 0 5%;
 }
