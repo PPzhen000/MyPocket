@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Let's look at your expenses: </h2>
     <%total_spent = 0 %>
-    <% current_user.categories.each do |category| %>
+    <% current_user.categories.uniq.each do |category| %>
 
         <h3><%= link_to category.name, edit_category_path(category) %></h3>
 
