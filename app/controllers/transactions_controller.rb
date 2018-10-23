@@ -16,7 +16,9 @@ class TransactionsController < ApplicationController
       flash[:error] = "Activity could not be created"
     end
     redirect_to current_user
+  end
 
+  def show
   end
 
   def edit
@@ -27,12 +29,10 @@ class TransactionsController < ApplicationController
     @transaction.update(transaction_params)
     if @transaction.save
       flash[:success] = "Activity was updated"
-      redirect_to current_user
     else
-      flash[:error] = "Activity could not be updated"
-      redirect_to root_path
+      flash[:error] = "Activity could not be updated"    
     end
-
+    redirect_to current_user
   end
 
   def destroy
