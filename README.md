@@ -8,8 +8,8 @@ This Rails App helps keeping track of your personal financial activities. MyPock
 
 To use this app, please clone from [MyPocket](https://github.com/PPzhen000/MyPocket), run the following
   - bundle install
-  - rake db:migrate
-  - rails s
+  - rake db:migrate, rake db:seed
+  - thin start --ssl
   - go to https://localhost:3000
 
 ## Contributing
