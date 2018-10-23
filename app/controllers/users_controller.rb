@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
 
   def index
+    if logged_in?
+      redirect_to user_path(current_user)
+    end
   end
 
   def new
@@ -16,7 +19,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    return head(:forbidden) unless session.include? :user_id
+    @categories = Category.all
+
+    if !params[:category].blank?
+      @transactions = current_user.transactions.where(category: params[:category])
+    else
+      @transactions = current_user.transactions
+    end
   end
 
   def edit
