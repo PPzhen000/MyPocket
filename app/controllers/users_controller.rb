@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
 
   def index
-    if logged_in?
-      redirect_to user_path(current_user)
-    end
   end
 
   def new
