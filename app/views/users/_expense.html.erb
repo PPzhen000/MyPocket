@@ -11,15 +11,15 @@
     <% end %>
   </div>
       <ol>
-      <% @transactions.most_recent.each do |transaction| %>
-        <li>
-          <%= link_to transaction.description, edit_user_transaction_path(current_user, transaction) %> - $ <%= transaction.amount %>
-          &nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;
-          <%= was_created transaction %>
-        </li>
-      <br>
-      <% end %>
+        <% @transactions.most_recent.each do |transaction| %>
+          <li>
+            <%= link_to transaction.description, edit_user_transaction_path(current_user, transaction) %> - $ <%= transaction.amount %>
+            &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+            <%= was_created transaction %>
+          </li>
+        <br>
+        <% end %>
       </ol>
     <br>
     <div id="form">
