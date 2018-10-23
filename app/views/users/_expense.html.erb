@@ -1,7 +1,6 @@
 <div class="container">
-  <h2>Let's look at your expenses: </h2>
+  <h2><%= link_to "Expenses: ", user_transactions_path(current_user)%></h2>
   <div>
-    <h3>Filter activities:</h3>
     <%= form_tag(user_path(@user), method: "get") do %>
       View Activity by Category
       <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %><br>
@@ -11,16 +10,19 @@
     <% end %>
   </div>
       <ol>
+        <% total = 0 %>
         <% @transactions.most_recent.each do |transaction| %>
           <li>
             <%= link_to transaction.description, edit_user_transaction_path(current_user, transaction) %> - $ <%= transaction.amount %>
             &nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;
             <%= was_created transaction %>
+            <% total += transaction.amount %>
           </li>
         <br>
         <% end %>
       </ol>
+      You have spent $ <%= total %>.<br>
     <br>
     <div id="form">
       <%= render 'transactions/form' %>

@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
 
-  before_action :set_transaction, except: [:create]
+  before_action :set_transaction, except: [:create, :index]
 
   def new
     @user = current_user
@@ -18,7 +18,9 @@ class TransactionsController < ApplicationController
     redirect_to current_user
   end
 
-  def show
+  def index
+    @user = current_user
+    @transaction = @user.transactions.build
   end
 
   def edit
@@ -30,7 +32,7 @@ class TransactionsController < ApplicationController
     if @transaction.save
       flash[:success] = "Activity was updated"
     else
-      flash[:error] = "Activity could not be updated"    
+      flash[:error] = "Activity could not be updated"
     end
     redirect_to current_user
   end

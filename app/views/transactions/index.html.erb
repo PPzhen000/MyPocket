@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Let's look at your expenses: </h2>
+    <% current_user.categories.uniq.each do |category| %>
+
+        <h3><%= link_to category.name, edit_category_path(category) %></h3>
+
+      <ol>
+        <% category.transactions.where(user_id: current_user.id).most_recent.each do |ts| %>
+          <li><%= link_to ts.description, edit_user_transaction_path(current_user, ts) %> - $ <%= ts.amount %></li>
+        <% end %>
+      <br>
+      </ol>
+    <% end %>
+    <br>
+    <div id="form">
+      <%= render 'transactions/form' %>
+    </div>
+    <br>
+</div>
+<div class="center">
+  <%= link_to "Back", user_path(@user)%>
+</div>
