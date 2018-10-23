@@ -3,14 +3,19 @@
   <div>
     <h3>Filter activities:</h3>
     <%= form_tag(user_path(@user), method: "get") do %>
-      <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %>
+      View Activity by Category
+      <%= select_tag "category", options_from_collection_for_select(@categories, "id", "name"), include_blank: true %><br>
+      View Activity by Price
+      <%= select_tag "price", options_for_select(["Low to High", "High to low"]), include_blank: true %>
       <%= submit_tag "Filter" %>
     <% end %>
   </div>
       <ol>
       <% @transactions.most_recent.each do |transaction| %>
         <li>
-          <%= link_to transaction.description, edit_user_transaction_path(current_user, transaction) %> - $ <%= transaction.amount %><br>
+          <%= link_to transaction.description, edit_user_transaction_path(current_user, transaction) %> - $ <%= transaction.amount %>
+          &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
           <%= was_created transaction %>
         </li>
       <br>

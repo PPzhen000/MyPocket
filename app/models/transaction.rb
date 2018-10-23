@@ -8,6 +8,7 @@ class Transaction < ApplicationRecord
   validates :amount, numericality: { only_integer: true }
 
   scope :most_recent, -> { order("created_at DESC")}
-  scope :by_price, -> { order("amount DESC")}
+  scope :by_high_price, -> { order("amount DESC")}
+  scope :by_low_price, -> { order("amount ASC")}
   scope :by_category, -> (category_id) { where category_id: category_id }
 end
