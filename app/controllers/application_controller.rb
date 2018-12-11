@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    current_user.id 
+    !! current_user
   end
 
   helper_method :current_user, :logged_in?
