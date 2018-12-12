@@ -10,13 +10,30 @@
 
 <h1>Welcome! <%= current_user.name%></h1>
 
-<br>
-<%= render 'income' %>
-<br>
-<%= render 'expense' %>
-<br>
-<%= render 'saving_goal' %>
-<br>
+<div class="user_show_page">
+  <div class="income">
+      <h2 class="inc_title">Income</h2>
+
+      <div class="income_list">
+      </div>
+  </div>
+
+  <div class="expense">
+      <h2 class="exp_title">Expense</h2>
+
+      <div class="expense_list">
+      </div>
+  </div>
+
+  <div class="saving_goal">
+      <h2 class="sg_title">Saving Goal</h2>
+
+      <div class="saving_goal_list">
+      </div>
+  </div>
+
+</div>
+
 <div class="center">
   <%= button_to "Log Out", signout_path, method: :delete %>
 </div>
