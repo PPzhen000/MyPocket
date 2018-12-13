@@ -17,11 +17,12 @@ class UsersController < ApplicationController
 
   def show
     # raise params.inspect
-    @categories = Category.all
-
-    if params[:category].present?
-      @transactions = current_user.transactions.where(category: params[:category])
-    elsif params[:price].present?
+    # @categories = Category.all
+    #
+    # if params[:category].present?
+    #   @transactions = current_user.transactions.where(category: params[:category])
+    # elsif params[:price].present?
+    if params[:price].present?
       if params[:price] == "Low to High"
         @transactions = current_user.transactions.by_low_price
       else params[:price] == "High to low"
@@ -29,6 +30,11 @@ class UsersController < ApplicationController
       end
     else
       @transactions = current_user.transactions
+    end
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @user}
     end
   end
 
@@ -40,7 +46,7 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find_by(id: params[:id])
-    end 
+    end
 
     def user_params
       params.require(:user).permit(
