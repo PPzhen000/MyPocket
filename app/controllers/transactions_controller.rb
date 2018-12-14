@@ -20,7 +20,14 @@ class TransactionsController < ApplicationController
 
   def index
     @user = current_user
-    @transaction = @user.transactions.build
+    @transactions = @user.transactions
+
+    render json: @transactions
+    
+    # respond_to do |format|
+    #   format.html { render :index, :layout => false }
+    #   format.json { render json: @transactions}
+    # end
   end
 
   def edit

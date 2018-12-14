@@ -4,7 +4,7 @@
 
     <% current_user.saving_goals.uniq.each do |sg| %>
       <li>
-        <h3><%= sg.description %> - $ <%= sg.amount %><br></h3>  
+        <h3><%= sg.description %> - $ <%= sg.amount %><br></h3>
         <div class="trash">
           <%= button_to "delete", user_saving_goal_path(current_user, sg), method: :delete, data: { confirm: "Are you sure?" }%>
         </div>

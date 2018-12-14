@@ -1,11 +1,18 @@
-$(document).on('turbolinks:load', function () {
-  $(".expense").on('click', function(e) {
-    e.preventDefault();
-    loadIncome();
-  });
+$(document).ready(function(){
+
+  loadExpenses();
 });
 
-function loadIncome() {
-  
-
+function loadExpenses(){
+  $("a.exp_title").on('click', function(e) {
+    $.ajax({
+      method: 'GET',
+      url: this.href
+    }).done(function(data) {
+      data.forEach(function(expense) {
+        
+      });
+    });
+    e.preventDefault();
+  });
 }

@@ -12,24 +12,24 @@
 
 <div class="user_show_page">
   <div class="income">
-      <h2 class="inc_title">Income</h2>
-
-      <div class="income_list">
-      </div>
+    <h2 class="inc_title">Income</h2>
+    <%= render 'income' %>
+    <div class="income_list">
+    </div>
   </div>
 
   <div class="expense">
-      <h2 class="exp_title">Expense</h2>
-
-      <div class="expense_list">
-      </div>
+    <h2><%= link_to "Expense", user_transactions_path(current_user), class: "exp_title"%></h2>
+    <%= render 'expense' %>
+    <div class="expense_list">
+    </div>
   </div>
 
   <div class="saving_goal">
-      <h2 class="sg_title">Saving Goal</h2>
-
-      <div class="saving_goal_list">
-      </div>
+    <h2 class="sg_title">Saving Goal</h2>
+    <%= render 'saving_goal' %>
+    <div class="saving_goal_list">
+    </div>
   </div>
 
 </div>
