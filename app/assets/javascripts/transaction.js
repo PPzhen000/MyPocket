@@ -10,9 +10,18 @@ function loadExpenses(){
       url: this.href
     }).done(function(data) {
       data.forEach(function(expense) {
-        
+
       });
     });
     e.preventDefault();
   });
+}
+
+class Expense {
+ constructor(attributes){
+  this.id = attributes.id;
+  this.description = attributes.description;
+  this.amount = attributes.amount;
+ }
+
 }
