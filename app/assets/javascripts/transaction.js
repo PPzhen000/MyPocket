@@ -37,5 +37,5 @@ class Expense {
 } //end of expense constructor
 
 function formatExpense(response){
-  return `<li>${response.description}  -  ${response.category}  -  ${response.amount}</li>`
+  return `<li>${response.description}  -  ${response.category}  -  $${response.amount}</li>`
 }

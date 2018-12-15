@@ -22,5 +22,5 @@ class Income {
 }
 
 function formatIncome(response){
-  return `<li>${response.description} - ${response.amount}</li>`
+  return `<li>${response.description} - $${response.amount}</li>`
 }
