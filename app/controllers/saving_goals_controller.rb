@@ -1,5 +1,12 @@
 class SavingGoalsController < ApplicationController
-  before_action :set_saving_goal, except: [:create]
+  before_action :set_saving_goal, except: [:create, :index]
+
+  def index
+    @user = current_user
+    @sgs = @user.saving_goals
+
+    render json: @sgs 
+  end
 
   def new
     @user = current_user
