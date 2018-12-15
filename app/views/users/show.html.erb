@@ -12,16 +12,15 @@
 
 <div class="user_show_page">
   <div class="income">
-    <h2 class="inc_title">Income</h2>
-    <%= render 'income' %>
-    <div class="income_list">
+    <div class="container" id="income_list">
+      <h2><%= link_to "Income", user_incomes_path(current_user), class: "inc_title"%></h2>
     </div>
   </div>
 
   <div class="expense">
     <div class="container" id="expense_list">
       <h2><%= link_to "Expense", user_transactions_path(current_user), class: "exp_title"%></h2>
-      
+
     </div>
   </div>
 
