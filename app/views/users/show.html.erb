@@ -20,8 +20,8 @@
 
   <div class="expense">
     <h2><%= link_to "Expense", user_transactions_path(current_user), class: "exp_title"%></h2>
-    <%= render 'expense' %>
-    <div class="expense_list">
+
+    <div class="container" id="expense_list">
     </div>
   </div>
 
