@@ -1,5 +1,12 @@
 class IncomesController < ApplicationController
-  before_action :set_income, except: [:create]
+  before_action :set_income, except: [:create, :index]
+
+  def index
+    @user = current_user
+    @incomes = @user.incomes
+
+    render json: @incomes
+  end
 
   def new
     @user = current_user
