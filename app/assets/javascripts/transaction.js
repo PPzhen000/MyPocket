@@ -10,10 +10,13 @@ function loadExpenses(){
       url: this.href,
       dataType: 'json'
     }).done(function(data) {
+      let arrayOfLi = [];
       data.forEach(function(expense) {
-        let res = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
-        updateExpense(res);
+        let response = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
+        arrayOfLi.push(formatExpense(response))
       });
+      let fullHTML = `<ul>${arrayOfLi.join('')}</ul>`
+      $("#expense_list").append(fullHTML)
     });
     e.preventDefault();
   });
@@ -26,14 +29,11 @@ class Expense {
   this.amount = attributes.amount;
   this.category = attributes.category.name
  }
-
+  // Expense.prototype.calcPercentage = function(){
+  //
+  // }
 } //end of expense constructor
 
-function updateExpense(response){
-  $("#expense_list").text =
-    `<ul> + <li>
-
-    </ul>
-    `;
-
+function formatExpense(response){
+  return `<li>${response.description}  -  ${response.category}  -  ${response.amount}</li>`
 }
