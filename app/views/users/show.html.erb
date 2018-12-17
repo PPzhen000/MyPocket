@@ -14,18 +14,21 @@
   <div class="income">
     <div class="container" id="income_list">
       <h2><%= link_to "Income", user_incomes_path(current_user), class: "inc_title"%></h2>
+      <%= render 'incomes/form', class: "new_income" %>
     </div>
   </div>
 
   <div class="expense">
     <div class="container" id="expense_list">
       <h2><%= link_to "Expense", user_transactions_path(current_user), class: "exp_title"%></h2>
+      <%= render 'transactions/form' %>
     </div>
   </div>
 
   <div class="saving_goal">
     <div class="container" id="saving_goal_list">
       <h2><%= link_to "Saving Goal", user_saving_goals_path(current_user), class: "sg_title"%></h2>
+      <%= render 'saving_goals/form' %>
     </div>
   </div>
 
