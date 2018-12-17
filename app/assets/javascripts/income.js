@@ -24,3 +24,22 @@ class Income {
 function formatIncome(response){
   return `<li>${response.description} - $${response.amount}</li>`
 }
+
+function createIncome() {
+  $("form.new_income").on("submit", function(event) {
+    $.ajax({
+     type: "POST",
+     url: this.action,
+     data: $(this).serialize(), //either JSON or querystring serializing
+     success: function(response) {
+       // debugger
+       //create new instance of income model
+       let income = new Income(response);
+       let appendIncomeToList = formatIncome(response)
+       //adds the newly created income
+       $("#income_list").append(appendIncomeToList)
+      } //end of success
+    });
+      event.preventDefault();
+  });
+}
