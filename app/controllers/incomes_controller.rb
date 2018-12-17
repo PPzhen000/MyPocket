@@ -17,10 +17,11 @@ class IncomesController < ApplicationController
     @income = current_user.incomes.create(income_params)
     if @income.save
       flash[:success] = "Income was created"
+      render json: @income
     else
       flash[:error] = "Income could not be created"
+      redirect_to current_user
     end
-    redirect_to current_user
   end
 
   def edit
