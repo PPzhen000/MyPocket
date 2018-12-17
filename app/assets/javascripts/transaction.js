@@ -1,24 +1,15 @@
-$(document).ready(function(){
-
-  loadExpenses();
-  loadIncome();
-  loadSavingGoal()
-  createIncome()
-}); // end of document ready
-
-function loadExpenses(){
+function loadExpense(){
   $("a.exp_title").on('click', function(e) {
     $.ajax({
       method: 'GET',
       url: this.href,
       dataType: 'json'
     }).done(function(data) {
-      let arrayOfLi = [];
       data.forEach(function(expense) {
         let response = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
-        arrayOfLi.push(formatExpense(response))
+        user.data.expense.push(formatExpense(response))
       });
-      let fullHTML = `<ul>${arrayOfLi.join('')}</ul>`
+      let fullHTML = `<ul>${user.data.expense.join('')}</ul>`
       $("#expense_list").append(fullHTML)
     });
     e.preventDefault();
@@ -38,5 +29,5 @@ class Expense {
 } //end of expense constructor
 
 function formatExpense(response){
-  return `<li>${response.description}  -  ${response.category}  -  $${response.amount}</li></br>`
+  return `<li>${response.description}  -  $${response.amount}</li></br>`
 }

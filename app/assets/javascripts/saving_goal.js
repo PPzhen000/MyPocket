@@ -1,12 +1,11 @@
 function loadSavingGoal(){
   $("a.sg_title").on('click', function(e){
     $.get(this.href, function(data) {
-      let arrayOfLi = [];
       data.forEach(function(sg) {
         let response = new SavingGoal(sg);
-        arrayOfLi.push(formatSavingGoal(response))
+        user.data.saving_goal.push(formatSavingGoal(response))
       });
-      let fullHTML = `<ul>${arrayOfLi.join('')}</ul>`
+      let fullHTML = `<ul>${user.data.saving_goal.join('')}</ul>`
       $("#saving_goal_list").append(fullHTML)
     });
     e.preventDefault();
@@ -22,5 +21,5 @@ class SavingGoal {
 }
 
 function formatSavingGoal(response){
-  return `<li>${response.description} - $${response.amount}</li>`
+  return `<li>${response.description} - $${response.amount}</li></br>`
 }
