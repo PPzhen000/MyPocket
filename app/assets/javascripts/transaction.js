@@ -3,6 +3,7 @@ $(document).ready(function(){
   loadExpenses();
   loadIncome();
   loadSavingGoal()
+  createIncome()
 }); // end of document ready
 
 function loadExpenses(){
@@ -37,5 +38,5 @@ class Expense {
 } //end of expense constructor
 
 function formatExpense(response){
-  return `<li>${response.description}  -  ${response.category}  -  $${response.amount}</li>`
+  return `<li>${response.description}  -  ${response.category}  -  $${response.amount}</li></br>`
 }
