@@ -1,5 +1,5 @@
 function loadSavingGoal(){
-   $("a.sg_title").on('click', function(e){
+   $("a.saving_goal_title").on('click', function(e) {
      $.get(this.href, function(data) {
        data.forEach(function(sg) {
          let response = new SavingGoal(sg);
