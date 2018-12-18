@@ -34,9 +34,11 @@ function createIncome() {
        // debugger
        //create new instance of income model
        let income = new Income(response);
-       let appendIncomeToList = formatIncome(response)
+       user.data.income.push(formatIncome(income));
        //adds the newly created income
-       $("#income_list").append(appendIncomeToList)
+       $("#income_list").html('');
+       let fullHTML = `<ul>${user.data.income.join('')}</ul>`
+       $("#income_list").append(fullHTML)
       } //end of success
     });
       event.preventDefault();
