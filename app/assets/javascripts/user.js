@@ -4,6 +4,7 @@ $(document).ready(function(){
   loadExpense();
   loadSavingGoal();
   createIncome();
+  nextCategory()
   // createExpense();
   // createSavingGoal();
 

@@ -1,7 +1,6 @@
 function loadExpense(){
   $("a.expense_title").on('click', function(e) {
    $.get(this.href, function(data) {
-     debugger
       data.forEach(function(expense) {
         let response = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
       });
@@ -14,7 +13,7 @@ function loadExpense(){
 
 function formatData(arr) {
   let htmlArray = arr.map((ele, index) => {
-    return `<li id=${index}>${ele.description} - ${ele.amount}</li><br>`
+    return `<li id=${index}>${ele.description} - $ ${ele.amount}</li><br>`
   });
   return `<ul>${htmlArray.join('')}</ul>`
 }
