@@ -12,14 +12,6 @@ function loadSavingGoal(){
   });
 }
 
-class SavingGoal {
- constructor(attributes){
-  this.id = attributes.id;
-  this.description = attributes.description;
-  this.amount = attributes.amount;
- }
-}
-
 function formatSavingGoal(response){
   return `<li>${response.description} - $${response.amount}</li></br>`
 }

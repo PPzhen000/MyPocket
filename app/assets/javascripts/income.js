@@ -12,14 +12,6 @@ function loadIncome(){
   });
 }
 
-class Income {
- constructor(attributes){
-  this.id = attributes.id;
-  this.description = attributes.description;
-  this.amount = attributes.amount;
- }
-}
-
 function formatIncome(response){
   return `<div class="item">
             <div id="income-${response.id}" >
@@ -48,10 +40,3 @@ function createIncome() {
       event.preventDefault();
   });
 }
-// 
-// function deleteIncome() {
-//   $("form.new_income").on("submit", function(event) {
-//
-//       event.preventDefault();
-//   });
-// }
