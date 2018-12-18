@@ -1,0 +1,10 @@
+<a href="#" class="js-next" data-id="<%=@category.id%>">Next Category</a>
+<h1 class="categoryName"><%= @category.name %></h1>
+<div class="list">
+  <ol>
+    <% @category.transactions.where(user_id: current_user.id).most_recent.each do |ts| %>
+      <p><%= ts.description %> - $ <%= ts.amount %></p>
+    <% end %>
+  <br>
+  </ol>
+</div>
