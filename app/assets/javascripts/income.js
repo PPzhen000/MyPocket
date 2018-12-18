@@ -21,7 +21,11 @@ class Income {
 }
 
 function formatIncome(response){
-  return `<li>${response.description} - $${response.amount}</li></br>`
+  return `<div class="item">
+            <div id="income-${response.id}" >
+              <p>${response.description} - $${response.amount}</p><button class="item_delete-btn"><ion-icon name="close-circle-outline"></ion-icon></button>
+            </div>
+          </div>`
 }
 
 function createIncome() {
@@ -44,3 +48,10 @@ function createIncome() {
       event.preventDefault();
   });
 }
+// 
+// function deleteIncome() {
+//   $("form.new_income").on("submit", function(event) {
+//
+//       event.preventDefault();
+//   });
+// }
