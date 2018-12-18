@@ -22,12 +22,12 @@ class TransactionsController < ApplicationController
     @user = current_user
     @transactions = @user.transactions
 
-    render json: @transactions
-    
-    # respond_to do |format|
-    #   format.html { render :index, :layout => false }
-    #   format.json { render json: @transactions}
-    # end
+    # render json: @transactions
+
+    respond_to do |format|
+      format.html { render :index, :layout => false }
+      format.json { render json: @transactions}
+    end
   end
 
   def edit
