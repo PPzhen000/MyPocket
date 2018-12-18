@@ -7,15 +7,20 @@ function loadExpense(){
     }).done(function(data) {
       data.forEach(function(expense) {
         let response = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
-        user.data.expense.push(formatExpense(response))
       });
-      let fullHTML = `<ul>${user.data.expense.join('')}</ul>`
+      let fullHTML = formatData(user.data.expense)
       $("#expense_list").append(fullHTML)
     });
     e.preventDefault();
   });
 } //end of loadExpenses function
 
+function formatData(arr) {
+  let htmlArray = arr.map((ele, index) => {
+    return `<li id=${index}>${ele.description} - ${ele.amount}</li><br>`
+  });
+  return `<ul>${htmlArray.join('')}</ul>`
+}
 
 // function loadExpense(){
 //   $("a.expense_title").on('click', function(e) {
@@ -69,7 +74,3 @@ function loadExpense(){
 //     e.preventDefault();
 //   });
 // }
-
-function formatItem(response){
-  return `<li>${response.description}  -  $${response.amount}</li></br>`
-}

@@ -51,7 +51,7 @@ class Expense {
   this.percentage = -1;
   user.data.expense.push(this);
  }
-  calPercentage = function() {
+  calPercentage() {
     if (user.total.income > 0) {
       this.percentage = Math.round((this.amount / user.total.income) * 100);
     } else {

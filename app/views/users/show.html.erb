@@ -23,7 +23,6 @@
 
   <div class="expense">
     <h2><%= link_to "Expense", user_transactions_path(current_user), class: "exp_title"%></h2>
-    <h3><%= link_to "View Expenses with Categories", user_transactions_path(current_user), class: "exp_with_cat"%></h3>
     <div class="form">
       <h3 style="text-align:center;">New Expense: <%= render 'transactions/form', class: "new_expense" %></h3>
     </div>

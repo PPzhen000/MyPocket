@@ -3,21 +3,12 @@ function loadIncome(){
     $.get(this.href, function(data) {
       data.forEach(function(income) {
         let response = new Income(income);
-        user.data.income.push(formatIncome(response))
       });
-      let fullHTML = `<ul>${user.data.income.join('')}</ul>`
+      let fullHTML = formatData(user.data.income)
       $("#income_list").append(fullHTML)
     });
     e.preventDefault();
   });
-}
-
-function formatIncome(response){
-  return `<div class="item">
-            <div id="income-${response.id}" >
-              <p>${response.description} - $${response.amount}</p><button class="item_delete-btn"><ion-icon name="close-circle-outline"></ion-icon></button>
-            </div>
-          </div>`
 }
 
 function createIncome() {
