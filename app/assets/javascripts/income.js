@@ -1,15 +1,15 @@
-function loadIncome(){
-  $("a.income_title").on('click', function(e){
-    $.get(this.href, function(data) {
-      data.forEach(function(income) {
-        let response = new Income(income);
-      });
-      let fullHTML = formatData(user.data.income)
-      $("#income_list").append(fullHTML)
-    });
-    e.preventDefault();
-  });
-}
+// function loadIncome(){
+//   $("a#income").on('click', function(e){
+//     $.get(this.href, function(data) {
+//       data.forEach(function(income) {
+//         let response = new Income(income);
+//       });
+//       let fullHTML = formatData(user.data.income)
+//       $("#income_list").append(fullHTML)
+//     });
+//     e.preventDefault();
+//   });
+// }
 
 function createIncome() {
   $("form.new_income").on("submit", function(event) {

@@ -1,8 +1,8 @@
 $(document).ready(function(){
-
-  loadIncome();
-  loadExpense();
-  loadSavingGoal();
+  loadItem();
+  // loadIncome();
+  // loadExpense();
+  // loadSavingGoal();
   createIncome();
   nextCategory()
   // createExpense();
@@ -14,7 +14,7 @@ $(document).ready(function(){
 let user = {
   data: {
     income: [],
-    expense: [],
+    transaction: [],
     saving_goal: []
   },
   total: {
@@ -48,18 +48,20 @@ class Expense {
   this.id = attributes.id;
   this.description = attributes.description;
   this.amount = attributes.amount;
-  this.category = attributes.category.name;
+  // this.category = attributes.category.name;
   this.percentage = -1;
-  user.data.expense.push(this);
+  user.data.transaction.push(this);
  }
-  calPercentage() {
-    if (user.total.income > 0) {
-      this.percentage = Math.round((this.amount / user.total.income) * 100);
-    } else {
-      this.percentage = -1;
-    }
+}
+
+Expense.prototype.calPercentage = function(){
+  if (user.total.income > 0) {
+    this.percentage = Math.round((this.amount / user.total.income) * 100);
+  } else {
+    this.percentage = -1;
   }
 }
+
 
 class SavingGoal {
  constructor(attributes){
