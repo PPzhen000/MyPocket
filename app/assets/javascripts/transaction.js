@@ -8,7 +8,7 @@ function loadExpense(){
         let response = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
       });
       let fullHTML = formatExpense(user.data.transaction)
-      debugger
+      // debugger
       $("#transaction_list").append(fullHTML)
       $("#transaction_list").append(`<br/>Total Expenses: $ ${total(user.data.transaction)}`)
     }, "json");
