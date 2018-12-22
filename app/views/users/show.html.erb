@@ -24,9 +24,9 @@
   </div>
 
   <div class="expense">
-    <h2><%= link_to "Expense", user_transactions_path(current_user), class: "title", id: "transaction"%></h2>
+    <h2><%= link_to "Expense", user_transactions_path(current_user), id: "transaction"%></h2>
     <div class="form">
-      <h3 style="text-align:center;">New Expense: <%= render 'transactions/form', class: "new_expense" %></h3>
+      <!-- <h3 style="text-align:center;">New Expense: <%#= render 'transactions/form', class: "new_expense" %></h3> -->
     </div>
     <div id="transaction_list">
     </div>
@@ -37,7 +37,7 @@
   <div class="saving_goal">
     <h2><%= link_to "Saving Goal", user_saving_goals_path(current_user), class: "title", id: "saving_goal"%></h2>
     <div class="form">
-      <h3 style="text-align:center;">New Saving Goal: <%= render 'saving_goals/form', class: "new_saving_goal" %></h3>
+      <!-- <h3 style="text-align:center;">New Saving Goal: <%#= render 'saving_goals/form', class: "new_saving_goal" %></h3> -->
     </div>
     <div id="saving_goal_list">
     </div>
