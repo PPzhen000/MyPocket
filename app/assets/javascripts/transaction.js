@@ -8,7 +8,9 @@ function loadExpense(){
         let response = new Expense(expense); //res.amount = 1000, res.description = 'rent', res.category = 'Housing'
       });
       let fullHTML = formatExpense(user.data.transaction)
+      debugger
       $("#transaction_list").append(fullHTML)
+      $("#transaction_list").append(`<br/>Total Expenses: $ ${total(user.data.transaction)}`)
     }, "json");
     e.preventDefault();
   });
@@ -24,29 +26,23 @@ function loadExpense(){
 
 function formatExpense(arr) {
   let htmlArray = arr.map((ele, index) => {
-    // debugger
-    return `<li id=${index}>${ele.description} - $ ${ele.amount} - ${ele.calPercentage()}% </li><br>`
-  });
-  return `<ul>${htmlArray.join('')}</ul>`
-}
+    // return `<li id=${index}>${ele.description} - $ ${ele.amount} - ${ele.calPercentage()}% </li><br>`
+    return  `<tr id=${index}>
+       <td>${ele.description}</td>
+       <td>$ ${ele.amount}</td>
+       <td>${ele.calPercentage()}%</td>
+     </tr>`
 
-// <table style="width:100%">
-//   <tr>
-//     <th>Firstname</th>
-//     <th>Lastname</th>
-//     <th>Age</th>
-//   </tr>
-//   <tr>
-//     <td>Jill</td>
-//     <td>Smith</td>
-//     <td>50</td>
-//   </tr>
-//   <tr>
-//     <td>Eve</td>
-//     <td>Jackson</td>
-//     <td>94</td>
-//   </tr>
-// </table>
+  });
+  // return `<ul>${htmlArray.join('')}</ul>`
+  return `<table>
+          <tr>
+          <th>Transaction</th>
+          <th>Amount</th>
+          <th>Ratio</th>
+          </tr>${htmlArray.join('')}
+          </table>`
+}
 
 // function loadItem(){ //itemName = [income, expense, saving_goal]
 //   $('a.title').on('click', function(e){

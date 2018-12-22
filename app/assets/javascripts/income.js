@@ -20,7 +20,6 @@ function createIncome() {
      success: function(response) {
        //create new instance of income model
        let income = new Income(response);
-       totalIncome();
        let fullHTML = formatData(user.data.income)
        //adds the newly created income
        $("#income_list").html('');
